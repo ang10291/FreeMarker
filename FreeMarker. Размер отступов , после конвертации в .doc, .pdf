@@ -1,15 +1,3 @@
-<!-- Если не оборачивать блоком, то размер отступов автоматически будет левый отступ - 2.6cm, и правый отступ - 1сm -->
-       @page {
-            size: 21cm 29.7cm;
-            @top-center {
-                content: element(header)
-            }
-            @bottom-center {           //Нижний колонтитул для нумерации страницы
-                content: element(footer)
-            }
-        }
-        
-        
 <!-- Стилизация для блока Section1 -->        
         @page Section1 {
             margin-left: 2.4cm;
