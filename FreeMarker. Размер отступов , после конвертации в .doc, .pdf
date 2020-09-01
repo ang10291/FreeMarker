@@ -1,14 +1,24 @@
-<!-- Если не ставить размер отступов, то автоматически будет левый отступ - 2.6cm, и правый отступ - 1сm -->
+<!-- Если не оборачивать блоком, то размер отступов автоматически будет левый отступ - 2.6cm, и правый отступ - 1сm -->
        @page {
             size: 21cm 29.7cm;
             @top-center {
-                margin-left: 2.6cm;  //левый отступ
-                margin-right: 1cm; //правый отступ
                 content: element(header)
             }
-            
-<!-- Нижний колонтитул для нумерации страницы -->
-            @bottom-center {
+            @bottom-center {           //Нижний колонтитул для нумерации страницы
                 content: element(footer)
             }
+        }
+        
+        
+<!-- Стилизация для блока Section1 -->        
+        @page Section1 {
+            margin-left: 2.4cm;
+            margin-right: 1cm;
+            mso-footer-margin: .5in;
+            mso-footer: f1;
+        }
+        
+<!-- Обернем нужный блок классом Section1 -->
+        div.Section1 {
+            page: Section1;
         }
