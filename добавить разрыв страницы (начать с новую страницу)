@@ -1,0 +1,11 @@
+     
+<!-- Разрыв новой страницы (css код) -->
+       @page Section1 {
+            mso-footer-margin: .5in;
+            mso-footer: f1;
+        }
+        
+<!-- Обернем обычным блоком <div class="Section1"> нужную страницу </div> -->
+        div.Section1 {
+            page: Section1;
+        }
