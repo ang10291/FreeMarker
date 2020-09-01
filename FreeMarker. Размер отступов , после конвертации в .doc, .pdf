@@ -1,0 +1,14 @@
+<!-- Если не ставить размер отступов, то автоматически будет левый отступ - 2.6cm, и правый отступ - 1сm -->
+       @page {
+            size: 21cm 29.7cm;
+            @top-center {
+                margin-left: 2.6cm;  //левый отступ
+                margin-right: 1cm; //правый отступ
+                content: element(header)
+            }
+            
+<!-- Нижний колонтитул для нумерации страницы -->
+            @bottom-center {
+                content: element(footer)
+            }
+        }
