@@ -1,0 +1,653 @@
+<!DOCTYPE html [
+        <!ENTITY nbsp "&#160;">
+]>
+
+<html lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-Equiv = "Content-Langua ge" content = "en-us">
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            border: none;
+            outline: none;
+            font-family: 'Times New Roman', sans-serif;
+        }
+        .clear {
+            clear: both;
+        }
+
+        .new-page {
+            width:50%;
+            margin: 0 auto;
+            padding: 0px;
+        }
+
+        .header {
+            padding-bottom: 10px;
+        }
+
+        .header-title {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .company-name-container {
+            width: auto;
+            text-align: center;
+            padding: 0px;
+        }
+
+        .sup-city {
+            float: left;
+        }
+
+        .sup-date {
+            float: right;
+            padding-right: 12px;
+        }
+
+        .title-container {
+            margin: 12px 0;
+        }
+
+        .table-container {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            font-size: 13px;
+            border-collapse: collapse;
+        }
+
+        table td p{
+            text-align: justify;
+            margin: 0
+        }
+
+        td, th {
+            padding-top: 2px;
+            padding-bottom: 2px;
+            padding-left: 6px;
+            padding-right: 6px;
+            border: 1px solid #585858;
+            vertical-align: top;
+        }
+
+        .text-justify {
+            text-align: justify;
+        }
+        .text-justify p{
+            margin:0;
+            font-size: 13px;
+            font-family: 'Times New Roman', sans-serif;
+        }
+
+        .text-left {
+            text-align: left;
+            padding-left: 15px;
+        }
+
+        .text-right {
+            text-align: center;
+        }
+        @page {
+            size: 29.7cm 21cm ;
+        }
+       
+        @page new-page {
+            margin-left: 2.2cm;
+            margin-right: 1.6cm;
+            mso-footer: f1;
+            margin-top: 2cm;
+            margin-bottom: 2cm;
+        }
+
+        div.new-page {
+            page: new-page;
+        }
+        
+        @page new-page1 {
+            margin-left: 1cm;
+            margin-right: 1cm;
+            mso-footer: f1;
+            margin-top: 2cm;
+            margin-bottom: 2cm;
+        }
+
+        div.new-page1 {
+            page: new-page1;
+        }
+
+        #footer {
+            position: running(footer);
+        }
+
+        #pagenumber:before {
+            content: counter(page);
+        }
+
+        #pagecount:before {
+            content: counter(pages);
+        }
+ 
+    </style>
+</head>
+<body>
+<#setting date_format="dd MMMM yyyy" />
+<#setting locale="ru" />
+
+ <div id="footer">
+    <!--<p class="text-right" style="font-size: 11px;">
+        Страница <span id="pagenumber"/> из <span id="pagecount"/>
+    </p>-->
+</div> 
+<div class="new-page">
+    <div class="text-justify">
+        <p style="font-size: 16px; text-align: center" ><b><i>АНКЕТА КЛИЕНТА – ИНДИВИДУАЛЬНОГО ПРЕДПРИНИМАТЕЛЯ<sup><small>1</small></sup> </i></b></p>
+    </div>
+    <div class="text-justify">
+        <p ><b>Часть 1 </b> – заполняется индивидуальным предпринимателем или его представителем / работником Банка</p>
+    </div>
+    <table>
+        <tbody>
+            <tr>
+                <td width="8%">1</td>
+                <td width="40%">Фамилия, имя, отчество (при наличии последнего)</td>
+                <td colspan="4" width="40%"><#if card.client.ceo.person.surname?has_content>${card.client.ceo.person.surname} <#else> </#if>
+                    <#if card.client.ceo.person.name?has_content>${card.client.ceo.person.name} <#else> </#if>
+                    <#if card.client.ceo.person.patronymic?has_content>${card.client.ceo.person.patronymic} <#else> </#if></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Дата рождения</td>
+                <td colspan="4"><#if card.client.ceo.passport.birthday?has_content>${card.client.ceo.passport.birthday?date("yyyy-MM-dd")?date} <#else>
+                            -
+                </#if></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Место рождения</td>
+                <td colspan="4"><#if card.client.ceo.passport.placeBirth?has_content>${card.client.ceo.passport.placeBirth}<#else> </#if></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Гражданство</td>
+                <td colspan="4"> РФ</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Адрес места жительства (регистрации) или места пребывания</td>
+                <td colspan="4"><#if card.client.addressActual.index?has_content>${card.client.addressActual.index} <#else> </#if>
+                        <#if card.client.addressActual.country?has_content>${card.client.addressActual.country} <#else> </#if>
+                    <#if card.client.addressActual.region?has_content>${card.client.addressActual.region} <#else> </#if>
+                    <#if card.client.addressActual.district?has_content>${card.client.addressActual.district} <#else> </#if>
+                    <#if card.client.addressActual.city?has_content>${card.client.addressActual.city} <#else> </#if>
+                    <#if card.client.addressActual.street?has_content>${card.client.addressActual.street} <#else> </#if>
+                    <#if card.client.addressActual.house?has_content>${card.client.addressActual.house} <#else> </#if>
+                    <#if card.client.addressActual.flat?has_content>${card.client.addressActual.flat} <#else> </#if></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Идентификационный номер налогоплательщика (ИНН)</td>
+                <td colspan="4"><#if card.client.inn?has_content>${card.client.inn} <#else> </#if></td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>СНИЛС <sup><small>2</small></sup> (при наличии)</td>
+                <td colspan="4"><#if card.client.ceo.snils?has_content>${card.client.ceo.snils} <#else> - </#if></td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td colspan="5" bgcolor="#d2d2d2"><b>Реквизиты документа, удостоверяющего личность:</b></td>
+            </tr>
+            <tr>
+                <td>8.1</td>
+                <td>Наименование</td>
+                <td colspan="4">Паспорт РФ</td>
+            </tr>
+            <tr>
+                <td>8.2</td>
+                <td>Серия <i>(при наличии)</i> и номер</td>
+                <td colspan="4"><#if card.client.ceo.passport.series?has_content>${card.client.ceo.passport.series} <#else> </#if> и 
+                    <#if card.client.ceo.passport.number?has_content>${card.client.ceo.passport.number} <#else> </#if></td>
+            </tr>
+            <tr>
+                <td>8.3</td>
+                <td>Дата выдачи   </td>
+                <td colspan="4"><#if card.client.ceo.passport.issuedWhen?has_content>${card.client.ceo.passport.issuedWhen?date("yyyy-MM-dd")?date}<#else> </#if></td>
+            </tr>
+            <tr>
+                <td>8.4</td>
+                <td>Наименование органа, выдавшего документ</td>
+                <td colspan="4"><#if card.client.ceo.passport.issuedWho?has_content>${card.client.ceo.passport.issuedWho} <#else> </#if></td>
+            </tr>
+            <tr>
+                <td>8.5</td>
+                <td>Код подразделения <i>(при наличии)</i></td>
+                <td colspan="4"><#if card.client.ceo.passport.subCode?has_content>${card.client.ceo.passport.subCode} <#else> </#if></td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td colspan="5" bgcolor="#d2d2d2"><b>Данные миграционной карты</b> <i>(для иностранных лиц и лиц без гражданства, находящихся на территории РФ, в случае если необходимость наличия у них миграционной карты предусмотрена законодательством РФ):</i></td>
+            </tr>
+            <tr>
+                <td>9.1</td>
+                <td>Номер карты</td>
+                <td colspan="4">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>9.2</td>
+                <td>Дата начала срока пребывания</td>
+                <td colspan="4">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>9.3</td>
+                <td>Дата окончания срока пребывания</td>
+                <td colspan="4">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td colspan="5" bgcolor="#d2d2d2"><b>Данные документа, подтверждающего право иностранного гражданина или лица без гражданства на пребывание (проживание) в РФ<sup><small>3</small></sup> :</b></td>
+            </tr>
+             <tr>
+                <td>10.1</td>
+                <td>Серия <i>(если имеется)</i> и номер</td>
+                <td colspan="4">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>10.2</td>
+                <td>Дата начала срока действия права</td>
+                <td colspan="4">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>10.3</td>
+                <td>Дата окончания срока действия права</td>
+                <td colspan="4">&nbsp;</td>
+            </tr>
+            <tr>
+                <td rowspan="2">11</td>
+                <td colspan="3" width="80%" bgcolor="#d2d2d2"><b>Сведения о лицензии на право осуществления деятельности, подлежащей лицензированию, не указанные в ЕГРИП </b></td>
+                <td colspan="2" bgcolor="#d2d2d2"><b>☐</b> да   <b>☒</b> нет</td> 
+            </tr>
+            <tr>
+                <td colspan="5"><i>В случае проставления подтверждающей отметки указать: вид, номер, дата выдачи лицензии; кем выдана; срок действия; перечень видов лицензируемой деятельности. Все сведения в вышеуказанном объеме формируются по каждой лицензии</i></td>
+            </tr>
+            <tr>
+                <td rowspan="2">12</td>
+                <td colspan="4" bgcolor="#d2d2d2"><b>Принадлежность к публичному должностному лицу (ПДЛ) или лицам, связанным с ПДЛ </b></td>
+                <td rowspan="2" ><b>☐</b> да   <b>☒</b> нет</td> 
+            </tr>
+            <tr>
+                <td colspan="4"><i>(При указании «ДА» необходимо представить сведения по форме ПАО «Промсвязьбанк»)</i></td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td colspan="4" width="80%" bgcolor="#d2d2d2"><b>Клиент действует в пользу Выгодоприобретателя </b><i>(в случае ответа на вопрос – «ДА» необходимо представить сведения о Выгодоприобретателе по форме ПАО «Промсвязьбанк» и указать вид договора/основания</i> (Комиссии, Агентский, Поручения, Доверительного управления, Иные<sup><small>4</small></sup>  )</td>
+                <td><b>☐</b> да   <b>☒</b> нет</td> 
+            </tr>
+            <tr>
+                <td>14</td>
+                <td colspan="5" bgcolor="#d2d2d2"><b>Сведения о представителях<sup><small>5</small></sup></b>  <i>(Если от имени, в интересах или за счет индивидуального предпринимателя действует представитель, необходимо представить сведения о представителе по форме части 1а настоящей Анкеты Клиента)</i></td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td colspan="5" bgcolor="#d2d2d2"><b>Сведения о целях установления и предполагаемом характере деловых отношений с Банком, сведения о целях финансово-хозяйственной деятельности </b></td>
+            </tr>
+            <tr>
+                <td rowspan="7" width="8%">15.1</td>
+                <td colspan="5" bgcolor="#d2d2d2"><b>Цели установления деловых отношений с ПАО «Промсвязьбанк»</b></td>
+            </tr>
+            <tr>
+                <td width="30%" colspan="2"><b>☐</b> Дистанционное банковское обслуживание</td>
+                <td width="30%" colspan="2"><b>☐</b> Расчетно-кассовое обслуживание</td>
+                <td width="32%"><b>☐</b> Депозиты</td>
+            </tr>
+            <tr>
+                <td colspan="2"><b>☒</b> Документарные операции (аккредитивы, гарантии, инкассо)</td>
+                <td colspan="2"><b>☐</b> Валютный контроль</td>
+                <td><b>☐</b> Кредитование</td>
+            </tr>
+            <tr>
+                <td colspan="2"><b>☐</b> Внешнеэкономические операции</td>
+                <td colspan="2"><b>☐</b> Зарплатный проект</td>
+                <td><b>☐</b> Факторинг</td>
+            </tr>
+            <tr>
+                <td colspan="2"><b>☐</b> Сделки в рамках брокерского обслуживания</td>
+                <td colspan="2"><b>☐</b> Аренда банковской ячейки</td>
+                <td><b>☐</b> Лизинг</td>
+            </tr>
+            <tr>
+                <td colspan="2"><b>☐</b> Операции (сделки) с драгоценными металлами</td>
+                <td colspan="2"><b>☐</b> Конверсионные операции</td>
+                <td><b>☐</b> Инкассация</td>
+            </tr>
+            <tr>
+                <td colspan="5"><b>☐</b> Иное <i>(указать)</i> </td>
+            </tr>
+            <tr>
+                <td rowspan="2">15.2</td>
+                <td colspan="4" bgcolor="#d2d2d2"><b>Наличие сведений о финансово-хозяйственной деятельности в открытых источниках информации (периодические издания, официальный сайт, членство в союзах, ассоциациях, объединениях, иное). </b></td>
+                <td rowspan="2"><b>☐</b> да   <b>☒</b> нет</td>
+            </tr>
+            <tr>
+                <td colspan="4"><i>При наличии указать источники информации </i></td>
+            </tr>
+            <tr>
+                <td rowspan="4" width="8%">15.3</td>
+                <td colspan="5" bgcolor="#d2d2d2"><b>Сведения о планируемых операциях по счету в течение определенного периода </b></td>
+            </tr>
+            <tr>
+                <td colspan="2" width="30%"><b><i>Операции по снятию денежных средств в наличной форме</i></b></td>
+                <td width="16%"><b>☐</b> Да &nbsp;&nbsp;&nbsp;&nbsp;<b>☒</b> Нет</td>
+                <td colspan="2" width="30%"><i>количество операций за неделю, месяц, квартал, год (нужное подчеркнуть)&nbsp;&nbsp;&nbsp;&nbsp; Сумма (в рублях РФ) &nbsp;&nbsp;&nbsp;&nbsp;</i></td>
+            </tr>
+            <tr>
+                <td colspan="2" width="30%"><b><i>Операции в рамках внешнеторговых контрактов</i></b></td>
+                <td ><b>☐</b> Да &nbsp;&nbsp;&nbsp;&nbsp;<b>☒</b> Нет</td>
+                <td colspan="2" width="30%"><i>количество операций за неделю, месяц, квартал, год (нужное подчеркнуть)&nbsp;&nbsp;&nbsp;&nbsp; Сумма (в рублях РФ) &nbsp;&nbsp;&nbsp;&nbsp;</i></td>
+            </tr>
+            <tr>
+                <td colspan="2" width="30%"><b><i>Оплата налоговых платежей в бюджет РФ</i></b></td>
+                <td width="12%"><b>☐</b> Да  <b>☒</b> Нет</td>
+                <td width="25%"><i><b>Выплата заработной платы работникам</b></i></td>
+                <td width="15%"><b>☐</b> Да  <b>☒</b> Нет</td>
+            </tr>
+            <tr>
+                <td rowspan="3" width="8%">15.4</td>
+                <td colspan="5" bgcolor="#d2d2d2"><b>Основные контрагенты, планируемые плательщики и получатели по договорам (контрактам), по которым планируется осуществление расчетов </b></td>
+            </tr>
+            <tr>
+                <td colspan="1">Наименование</td>
+                <td>ИНН/КИО</td>
+                <td colspan="1">Наименование</td>
+                <td colspan="2">ИНН/КИО</td>
+            </tr>
+            <tr>
+                <td colspan="1">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td colspan="2">&nbsp;</td>
+            </tr>
+            <tr>
+                <td rowspan="3">15.5</td>
+                <td colspan="5" bgcolor="#d2d2d2"><b>Виды договоров (контрактов), по которым планируется осуществление расчетов:</b></td>
+            </tr>
+            <tr>
+                <td colspan="5"> <b>☐</b> Купли-продажи    <b>☐</b> Займа    <b>☐</b> Оказания услуг     <b>☐</b> Выполнения работ<b>☐</b> Аренды</td>
+            </tr>
+            <tr>
+                <td colspan="5"> <b>☐</b> Иные  (указать) </td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td colspan="4" bgcolor="#d2d2d2"><b>Наличие отзыва о деловой репутации юридического лица в случае возможности получения ,</b><i>(при указании «ДА» необходимо представить отдельный документ в произвольной письменной форме)</i></td>
+                <td width="15%"><b>☐</b> Да <b>☒</b> Нет</td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td colspan="4"><b>Сведения о Бенефициарном владельце индивидуального предпринимателя </b> <br>Наличие физического лица, которое в конечном счете прямо или косвенно (через третьих лиц) контролирует действия Клиента, в том числе имеет возможность определять решения, принимаемые Клиентом. Бенефициарным владельцем Клиента – физического лица считается это лицо, за исключением случаев, если имеются основания полагать, что Бенефициарным владельцем является иное физическое лицо <i>(При указании «ДА» необходимо представить сведения по форме части 2б настоящей Анкеты Клиента)</i>. При формировании Банком сведения о Бенефициарном владельце выводятся в настоящей графе.</td>
+                <td width="15%"><b>☐</b> Да  <b>☒</b> Нет</td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td colspan="4"><b>Являетесь ли Вы налоговым резидентом иностранного государства?</b> <i>(При указании «ДА» необходимо заполнить Анкету налогового резидента (FATCA или CRS) по форме ПАО «Промсвязьбанк»)</i></td>
+                <td width="15%"><b>☐</b> Да  <b>☒</b> Нет</td>
+            </tr>
+            <tr>
+                <td rowspan="4">19</td>
+                <td colspan="5" bgcolor="#d2d2d2"><b>Контактная информация</b> </td>
+            </tr>
+            <tr>
+                <td colspan="2">Телефон/факс</td>
+                <td colspan="3"><#if card.client.contacts.phone?has_content>${card.client.contacts.phone} <#else> - </#if> / <#if card.client.contacts.fax?has_content>${card.client.contacts.fax}<#else> - </#if></td>
+            </tr>
+            <tr>
+                <td colspan="2">Адрес электронной почты <i>(при наличии)</i></td>
+                <td colspan="3"><#if card.client.contacts.site?has_content>${card.client.contacts.site} <#else> </#if></td>
+            </tr>
+            <tr>
+                <td colspan="2">Почтовый адрес <i>(при наличии)</i></td>
+                <td colspan="3"><#if card.client.addressActual.index?has_content>${card.client.addressActual.index} <#else> </#if>
+                    <#if card.client.addressActual.country?has_content>${card.client.addressActual.country} <#else> </#if>
+                    <#if card.client.addressActual.region?has_content>${card.client.addressActual.region} <#else> </#if>
+                    <#if card.client.addressActual.district?has_content>${card.client.addressActual.district} <#else> </#if>
+                    <#if card.client.addressActual.city?has_content>${card.client.addressActual.city} <#else> </#if>
+                    <#if card.client.addressActual.street?has_content>${card.client.addressActual.street} <#else> </#if>
+                    <#if card.client.addressActual.house?has_content>${card.client.addressActual.house} <#else> </#if>
+                    <#if card.client.addressActual.flat?has_content>${card.client.addressActual.flat} <#else> </#if></td>
+            </tr>
+        </tbody>
+    </table> 
+    <div class="text-justify">
+        <p><br>Информация в Анкете является полной и достоверной.</p>
+    </div>
+    <div class="text-justify" style="margin-top: 30px">
+        <table>
+            <tbody>
+                <tr>
+                    <td style="border:none; width: 20%; vertical-align: bottom;"><b>Клиент/ Представитель,<br> действующий на основании</b></td>
+                    <td align="center"style="border:none;width: 30%"></td>
+                    <td style="border: none;"></td>
+                    <td align="center"style="border:none; width: 10%"></td>
+                    <td style="border: none;"></td>
+                    <td colspan="3" align="center" style="border:none;width: 30%;vertical-align: bottom;"><#if card.client.ceo.person.surname?has_content>${card.client.ceo.person.surname} <#else> </#if>
+                        <#if card.client.ceo.person.name?has_content>${card.client.ceo.person.name}<#else> </#if> <br>
+                        <#if card.client.ceo.person.patronymic?has_content>${card.client.ceo.person.patronymic} <#else> </#if></td>
+                </tr>
+                <tr>
+                    <td style="border:none;">&nbsp;</td>
+                    <td align="center"style="border-bottom: 1px solid #ffffff; border-right: #ffffff;border-left: #ffffff ;border-top: 1px solid#000000; font-size: 12px"><i>наименование должности/ документа, на основании которого действует представитель</i></td>
+                    <td style="border: none;"></td>
+                    <td align="center"style="border-bottom: 1px solid #ffffff; border-right: #ffffff;border-left: #ffffff ;border-top: 1px solid#000000;font-size: 12px"><i>подпись</i></td>
+                    <td style="border: none;"></td>
+                    <td colspan="3" align="center"style="font-size: 12px;border-bottom: 1px solid #ffffff; border-right: #ffffff;border-left: #ffffff ;border-top: 1px solid#000000;"><i>фамилия, инициалы</i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-justify">
+        <p><br><b>&nbsp;&nbsp;&nbsp;&nbsp;Печать</b> <i>(при наличии)</i></p>
+        <p><br>Заверительная подпись работника Банка<sup><small>6</small></sup> </p>
+        <p><br>&nbsp;&nbsp;_______________________________/ _________/___________________/ «___»__________ 201__г.</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(должность работника Банка)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(подпись)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Ф.И.О.)</p>
+    </div>
+    <div class="text-justify" style="padding-top: 30px">
+        <p><br><br><br>________________________________________</p>
+        <p style="font-size: 10;"><sup><small>1</small></sup> Все поля в Анкете Клиента должны быть заполнены, в случае отсутствия информации в поле для заполнения проставляется «нет» или «отсутствует».</p>
+        <p style="font-size: 10;"><sup><small>2</small></sup> Информация о страховом номере индивидуального лицевого счета застрахованного лица в системе обязательного пенсионного страхования (при наличии).</p>
+        <p style="font-size: 10;"><sup><small>3</small></sup>    Сведения устанавливаются в отношении иностранных лиц и лиц без гражданства, находящихся на территории Российской Федерации, в случае если необходимость наличия у них документа, подтверждающего право иностранного гражданина или лица без гражданства на пребывание (проживание) в Российской Федерации, предусмотрена законодательством Российской Федерации. </p>
+        <p style="font-size: 10;"><sup><small>4</small></sup>   Сведения о выгодоприобретателе по форме ПАО «Промсвязьбанк», могут не представляться: </p>
+        <p>- если выгодоприобретатель является органом государственной власти Российской Федерации, органом государственной власти субъекта Российской Федерации, органом местного самоуправления, органом государственной власти иностранного государства, Банком России;</p>
+        <p>- организациями, осуществляющими операции с денежными средствами или иным имуществом, указанными в статье 5 Федерального закона от 07.08.2001 № 115-ФЗ, или лицом, указанным в статье 7.1. Федерального закона от 07.08.2001 №115-ФЗ, и выгодоприобретатель является клиентом такой организации,</p> 
+        <p>- в случае если указанные документы не запрошены ПАО «Промсвязьбанк» отдельным запросом.</p>
+        <p style="font-size: 10;"><sup><small>5</small></sup>Представитель - лицо, при совершении операции действующее от имени и в интересах или за счет Клиента, полномочия которого основаны на доверенности, договоре, акте уполномоченного государственного органа или органа местного самоуправления, законе.</p>
+        <p style="font-size: 10;"><sup><small>6</small></sup>Заверительная подпись проставляется работником Банка при самостоятельном оформлении данной части Анкеты на бумажном носителе (в случае невозможности предоставления Анкеты Клиентом)</p>
+    </div>
+    <br clear=all style='mso-special-character:line-break;page-break-before:always'/>
+</div>
+<div class="new-page">
+    <div class="text-justify">
+        <p style="font-size: 13px; text-align: center" ><b>АНКЕТА КЛИЕНТА - ИНДИВИДУАЛЬНОГО ПРЕДПРИНИМАТЕЛЯ</b></p>
+    </div>
+    <div class="text-justify">
+        <p ><br><b>Часть 2 </b> – заполняется индивидуальным предпринимателем или его представителем</p>
+    </div>
+    <table>
+        <tbody>
+            <tr>
+                <td width="8%" rowspan="4">1</td>
+                <td bgcolor="#d2d2d2" colspan="2"><b>Сведения о государственной регистрации:</b></td>
+            </tr>
+            <tr>
+                <td width="40%">дата </td>
+                <td><#if card.client.kpp?has_content>${card.client.kpp} <#else> </#if></td>
+            </tr>
+            <tr>
+                <td>номер (ОГРНИП)  </td>
+                <td><#if card.client.ogrn?has_content>${card.client.ogrn} <#else> </#if></td>
+            </tr>
+            <tr>
+                <td>место государственной регистрации (местонахождение) </td>
+                <td><#if card.client.addressReg.index?has_content>${card.client.addressReg.index} <#else> </#if>
+                    <#if card.client.addressReg.country?has_content>${card.client.addressReg.country} <#else> </#if>
+                    <#if card.client.addressReg.region?has_content>${card.client.addressReg.region} <#else> </#if>
+                    <#if card.client.addressReg.district?has_content>${card.client.addressReg.district} <#else> </#if>
+                    <#if card.client.addressReg.country?has_content>${card.client.addressReg.country} <#else> </#if>
+                    <#if card.client.addressReg.city?has_content>${card.client.addressReg.city} <#else> </#if>
+                    <#if card.client.addressReg.street?has_content>${card.client.addressReg.street} <#else> </#if>
+                    <#if card.client.addressReg.house?has_content>${card.client.addressReg.house} <#else> </#if>
+                    <#if card.client.addressReg.flat?has_content>${card.client.addressReg.flat} <#else> </#if></td>
+            </tr>
+            <tr>
+                <td rowspan="3">2</td>
+                <td bgcolor="#d2d2d2" colspan="2"><b>Коды в соответствии с Общероссийским классификатором видов экономической деятельности (ОКВЭД)</b></td>
+            </tr>
+            <tr>
+                <td>основной </td>
+                <td><#if card.client.mainOkved.code?has_content>${card.client.mainOkved.code} <#else> </#if> <#if card.client.mainOkved.desc?has_content>${card.client.mainOkved.desc} <#else> </#if></td>
+            </tr>
+            <tr>
+                <td>дополнительные </td>
+                <td><#list card.client.otherOkveds as otherOkveds>
+                    <#if (otherOkveds.code)?has_content>${otherOkveds.code}</#if> 
+                    <#if (otherOkveds.desc)?has_content>${otherOkveds.desc}</#if>
+                    </#list></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td bgcolor="#d2d2d2" colspan="2"><b>Сведения о лицензии на право осуществления деятельности, подлежащей лицензированию, из  ЕГРИП</b> <br><i>(сведения в нижеуказанном объеме формируются по каждой лицензии):</i></td>
+            </tr>
+            </tbody>
+    </table>
+    <table>
+        <tbody>
+            <#list card.client.licenses as licenses>                    
+            <tr>
+                <td style=" width: 8% ; border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff "></td>
+                <td>вид</td>
+                <td><#if (licenses.kindActivity)?has_content>${licenses.kindActivity}</#if> </td>
+            </tr>
+            <tr>
+                <td style=" width: 8% ; border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff "></td>
+                <td>номер </td>
+                <td><#if (licenses.number)?has_content>${licenses.number}</#if></td>
+            </tr>
+            <tr>
+                <td style=" width: 8% ; border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff "></td>
+                <td>дата выдачи</td>
+                <td><#if (licenses.date)?has_content>${licenses.date?date("yyyy-MM-dd")?date}</#if></td>
+            </tr>
+            <tr>
+                <td style=" width: 8% ; border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff "></td>
+                <td>кем выдана</td>
+                <td><#if (licenses.issuer)?has_content>${licenses.issuer}</#if></td>
+            </tr>
+            <tr>
+                <td style=" width: 8% ; border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff "></td>
+                <td>срок действия</td>
+                <td><#if (licenses.expirationDate)?has_content>${licenses.expirationDate?date("yyyy-MM-dd")?date}</#if></td>
+            </tr>
+            <tr>
+                <td style=" width: 8% ; border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff "></td>
+                <td>перечень видов лицензируемой деятельности</td>
+                <td><#if (licenses.licensedActivities)?has_content>${licenses.licensedActivities}</#if></td>
+            </tr>
+            </#list>
+        </tbody>
+    </table>
+        
+    <table>
+        <tbody>
+            <tr>
+                <td rowspan="16" width="8%">4</td>
+                <td bgcolor="#d2d2d2" colspan="2" ><b>Планируется ли в рамках деловых отношений с ПАО «Промсвязьбанк» осуществление следующей деятельности:</b></td>
+            </tr>
+            <tr>
+                <td width="76%">Деятельность Платежного агента (Субагента)<sub><small>7</small></sub>  в соответствии с Федеральным законом от 03.06.2009 № 103-ФЗ «О деятельности по приему платежей физических лиц, осуществляемой платежными агентами» (далее – 103-ФЗ)</td>
+                <td><b>☐</b> да   <b>☒</b> нет</td>
+            </tr>
+            <tr>
+                <td>Деятельность Поставщика <sub><small>18</small></sub>  в соответствии с 103-ФЗ </td>
+                <td><b>☐</b> да   <b>☒</b> нет</td>
+            </tr>
+            <tr>
+                <td>Деятельность Банковского платежного агента (субагента)<sub><small>18</small></sub> в соответствии с Федеральным законом от 27.06.2011 № 161-ФЗ «О национальной платежной системе» </td>
+                <td><b>☐</b> да   <b>☒</b> нет</td>
+            </tr>
+            <tr>
+                <td>Осуществление переводов денежных средств на счета лиц-нерезидентов, не являющихся резидентами Республики Беларусь и (или) Республики Казахстан и (или) Республики Армения и (или) Киргизской Республики и действующих в своих интересах или по поручению третьих лиц (далее – контрагенты-нерезиденты), по заключенным с такими контрагентами-нерезидентами внешнеторговых договоров (контрактов), по которым ввоз товаров, ранее приобретенных у резидентов Республики Беларусь и (или) Республики Казахстан и (или) Республики Армения и (или) Киргизской Республики соответственно, будет осуществляться с территории Республики Беларусь и (или) Республики Казахстан и (или) Республики Армения и (или) Киргизской Республики и товарно-транспортные накладные будут оформляться грузоотправителями Республики Беларусь и (или) Республики Казахстан и (или) Республики Армения и (или) Киргизской Республики</td>
+                <td><b>☐</b> да   <b>☒</b> нет</td>
+            </tr>
+            <tr>
+                <td>Деятельность по организации и содержанию тотализаторов и игорных заведений (казино, букмекерских контор и др.), по организации и проведению лотерей, тотализаторов (взаимных пари) и иных основанных на риске игр, в том числе в электронной форме, а также деятельность ломбардов</td>
+                <td><b>☐</b> да   <b>☒</b> нет</td>
+            </tr>
+            <tr>
+                <td>Деятельность, связанная с реализацией, в том числе комиссионной, антиквариата, мебели, легковых транспортных средств, предметов искусства</td>
+                <td><b>☐</b> да   <b>☒</b> нет</td>
+            </tr>
+            <tr>
+                <td>Совершение сделок с драгоценными металлами, драгоценными камнями, а также ювелирными изделиями, содержащими драгоценные металлы и драгоценные камни, и ломом таких изделий</td>
+                <td><b>☐</b> да   <b>☒</b> нет</td>
+            </tr>
+            <tr>
+                <td>Совершение сделок с недвижимым имуществом и оказание посреднических услуг при совершении сделок с недвижимым имуществом</td>
+                <td><b>☐</b> да   <b>☒</b> нет</td>
+            </tr>
+            <tr>
+                <td>Оказание услуг в сфере розничной торговли, в сфере общественного питания</td>
+                <td><b>☐</b> да   <b>☒</b> нет</td>
+            </tr>
+            <tr>
+                <td>Оказание услуг в сфере торговле горючим на бензоколонках и газозаправочных станциях</td>
+                <td><b>☐</b> да   <b>☒</b> нет</td>
+            </tr>
+            <tr>
+                <td>Благотворительность или иная нерегулируемая некоммерческая деятельность</td>
+                <td><b>☐</b> да   <b>☒</b> нет</td>
+            </tr>
+            <tr>
+                <td>Туристская деятельность (туроператорская и турагентская деятельность, а также иная деятельность по организации путешествий)</td>
+                <td><b>☐</b> да   <b>☒</b> нет</td>
+            </tr>
+            <tr>
+                <td>Деятельность по производству оружия или посредническая деятельность по реализации оружия</td>
+                <td><b>☐</b> да   <b>☒</b> нет</td>
+            </tr>
+            <tr>
+                <td>Деятельность, связанная с изготовлением, переработкой, транспортировкой, хранением и реализацией ядерных материалов, радиоактивных веществ и отходов, других химических веществ, бактериологических материалов, оружия, боеприпасов, комплектующих к ним, взрывчатых веществ и другой продукции (товаров), запрещенных или ограниченных к свободному обороту</td>
+                <td><b>☐</b> да   <b>☒</b> нет</td>
+            </tr>
+            <tr>
+                <td>Осуществление переводов денежных средств в виде предварительной оплаты в пользу нерезидентов в рамках внешнеторговых договоров (контрактов), предусматривающих ввоз в Российскую Федерацию в период срока действия запрета, установленного Указом Президента Российской Федерации от 06.08.2014 № 560 «О применении отдельных специальных экономических мер в целях обеспечения безопасности Российской Федерации» , запрещенной к ввозу сельскохозяйственной продукции, сырья и продовольствия</td>
+                <td><b>☐</b> да   <b>☒</b> нет</td>
+            </tr>        
+        </tbody>
+    </table>
+    <div class="text-justify">
+        <p><br>Информация в Анкете Клиента является полной и достоверной.</p>
+    </div>
+    <div class="text-justify">
+        <p><br>Заверительная подпись работника Банка<sup><small>9</small></sup> </p>
+        <p><br>&nbsp;&nbsp;_______________________________/ _________/___________________/ «___»__________ 201__г.</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(должность работника Банка)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(подпись)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Ф.И.О.)</p>
+    </div>
+    <div class="text-justify" style="padding-top: 30px">
+        <p>________________________________________</p>
+        <p style="font-size: 10;"><sup><small>3</small></sup> Указом введен запрет либо ограничение на осуществление со дня вступления в силу Указа (с 06.08.2014) и на период, установленный Указом (с учетом продления действия отдельных специальных экономических мер в целях обеспечения безопасности Российской Федерации) внешнеэкономических операций, предусматривающих ввоз на территорию РФ отдельных видов сельскохозяйственной продукции, сырья и продовольствия, страной происхождения которых является государство, принявшее решение о введении экономических санкций в отношении российских юридических и (или) физических лиц или присоединившееся к такому решению, перечень которых определен постановлением Правительства Российской Федерации от 07.08.2014 № 778 «О мерах по реализации Указов Президента Российской Федерации от 6 августа 2014 г. № 560, от 24 июня 2015 г. № 320, от 29 июня 2016 г. № 305, от 30 июня 2017 г. № 293 и от 12 июля 2018 г. № 420».</p>
+        <p style="font-size: 10;"><sup><small>7</small></sup>  В случае осуществления указанного вида деятельности необходимо открыть специальный банковский счет. Несоблюдение требования может повлечь расторжение договорных отношений.</p>
+        <p style="font-size: 10;"><sup><small>9</small></sup>  Заверительная подпись проставляется работником Банка при оформлении данной части Анкеты на бумажном носителе </p>
+    </div>
+</div>
+
+
+    <div class="footer"></div>
+
+</body>
+</html>
